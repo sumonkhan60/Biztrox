@@ -29,15 +29,14 @@
                                         <td>{{$loop->iteration}}</td>
                                         <td>{{$blog->category->name}}</td>
                                         <td>{{$blog->main_title}}</td>
-                                        {{-- {{\App\Models\User::find($blog->author_id)}} --}}
-                                        <td>{{$blog->author_id}}</td>
+                                        <td>{{\App\Models\User::find($blog->author_id)->name}}</td>
                                         <td> <img src="{{asset($blog->image)}}" alt="" height="50" width="80"></td>
                                         <td>{{$blog->status == 1 ? 'Published' : 'Unpublished'}}</td>
                                         <td>
-                                            <a href="{{route('blog.detail', ['id' => $blog->id])}}" class="btn btn-primary btn-sm" title="View Blog Detail">
+                                            <a href="{{route('blog.detail', ['id' => $blog->id])}}" class="btn btn-primary btn-sm mb-3" title="View Blog Detail">
                                                 <i class="fa fa-book-open"></i>
                                             </a>
-                                            <a href="{{route('blog.status', ['id' => $blog->id])}}" class="btn btn-info btn-sm" title="Published Blog">
+                                            <a href="{{route('blog.status', ['id' => $blog->id])}}" class="btn btn-info btn-sm mb-3" title="Published Blog">
                                                 <i class="fa fa-arrow-up"></i>
                                             </a>
                                             <a href="{{route('blog.edit', ['id' => $blog->id])}}" class="btn btn-success btn-sm" title="Edit Blog">
